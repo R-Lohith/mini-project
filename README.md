@@ -1,36 +1,46 @@
-# Crowd Detection & Lost and Found System
 
-## 📌 Overview
-The **Crowd Detection & Lost and Found System** is an AI-powered solution designed for managing large gatherings in temples, festivals, events, and transportation hubs.
-It leverages the **NVIDIA DeepStream SDK** and **advanced computer vision models** to deliver real-time insights for safety and efficiency.
+# Face Detection, Recognition & Overcrowd Alert System
 
-At its core, the system integrates **crowd detection, traffic monitoring, lost and found** assistance through **face recognition, predictive crowd flow analysis, and emergency response tools** to improve safety, ensure smoother mobility, and enable proactive management in high-density environments.
-
----
-
-## ✨ Features
-- **Crowd Density Estimation** – Measures number of people in a region using DeepStream pipelines.
-- **Overcrowding Alerts** – Sends alerts when predefined thresholds are crossed.
-- **Face Detection & Recognition** – Detects faces and matches them with registered/missing person records.
-- **Lost & Found Assistance** – Helps identify missing individuals in real-time.
-- **Anomaly Detection (Future)** – Detects unusual movement or suspicious activities.
-- **Web Dashboard** – Frontend interface (React) for administrators and volunteers.
-- **Backend + Database (Future)** – Planned Django + MongoDB integration for data storage and search.
-- **Predictive Crowd Flow** - Forecasts crowd movement trends.
+This project combines:
+- **Face Registration & Recognition** → Register one face and detect it in images/videos.
+- **Overcrowd Detection** → Count the number of people in a frame and trigger an alert when the count exceeds a set threshold.
 
 ---
 
-## 🛠️ Tech Stack
-- **AI/ML & Vision**
-  - NVIDIA DeepStream SDK
-  - YOLO / PeopleNet for crowd detection
-  - OpenCV
-  - `face_recognition` (dlib-based)
-- **Backend (Future)**
-  - Django REST Framework (Python)
-- **Frontend (Future)**
-  - React.js
-- **Database (Future)**
-  - MongoDB
+## 🚀 Features
+- Register a single face (`my_face.npy` will be saved for reuse).
+- Detect and recognize the registered face in images.
+- Detect and count all people present in a frame.
+- Trigger **Overcrowd Alert** if the count exceeds your configured limit.
+- Works with **static images** and can be extended to **live webcam feed**.
 
 ---
+
+## 📦 Dependencies
+
+Make sure you have the following installed:
+
+- Python **3.8+**  
+- [OpenCV](https://opencv.org/) → for image & video processing  
+- [face_recognition](https://github.com/ageitgey/face_recognition) → for face detection & encoding  
+- [dlib](http://dlib.net/) → backend for face recognition (installed automatically with `face_recognition`)  
+- NumPy → for saving & loading face encodings
+- Deepstream **7.1**
+  
+
+### Installation
+
+Note : pyds must be bulided Please Refer Deepstream Documentations 
+
+```bash
+# Create virtual environment (recommended)
+python3 -m venv venv
+source venv/bin/activate   # Linux / Mac
+venv\Scripts\activate      # Windows
+
+# Upgrade pip
+pip install --upgrade pip
+
+# Install dependencies
+pip install opencv-python face_recognition numpy 
+
